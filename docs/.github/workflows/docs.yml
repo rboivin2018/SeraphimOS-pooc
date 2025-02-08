@@ -1,0 +1,31 @@
+on:
+  push:
+    branches: [ master ]
+    paths: [ 'docs/**' ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:  # <--- Ajoutez cette section
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.1  # Version compatible avec Jekyll
+          bundler-cache: true
+
+      - name: Install Jekyll
+        run: gem install jekyll jekyll-mermaid jekyll-toc
+
+      - name: Build Docs
+        run: jekyll build --source docs --destination ../_site
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
+          force_orphan: true

@@ -1,0 +1,14 @@
+---
+layout: guide
+title: Exploit Mitigations
+parent: Advanced Security Guide
+nav_order: 2
+---
+
+# Exploit Mitigations
+
+## Container Escape Exploits
+### CVE-2021-3490 (eBPF Verifier Bypass)
+**Solution**:  
+```bash
+sysctl -w kernel.unprivileged_bpf_disabled=1

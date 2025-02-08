@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }} | ContainOS Docs</title>
+  <link rel="stylesheet" href="{{ '/assets/css/style.scss' | relative_url }}">
+  {% include head-custom.html %}
+</head>
+<body>
+  <header class="Header">
+    <div class="Header-item">
+      <a href="/" class="Header-link">ContainOS</a>
+    </div>
+    <nav class="Header-nav">
+      {% for item in site.data.navigation.header %}
+        <a href="{{ item.url | relative_url }}" class="Header-link">
+          {{ item.title }}
+        </a>
+      {% endfor %}
+    </nav>
+  </header>
+
+  <div class="Layout">
+    <main class="Main">
+      {{ content }}
+    </main>
+  </div>
+
+  <footer class="Footer">
+    <div class="Footer-copyright">MIT License © 2024</div>
+  </footer>
+
+  {% include mermaid.html %}
+</body>
+</html>

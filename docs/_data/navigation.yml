@@ -1,0 +1,15 @@
+header:
+  - title: "Get Started"
+    url: /
+  - title: "Functional Docs"
+    url: /functional/components.html
+    children:
+      - title: "Architecture"
+        url: /functional/architecture.html
+      - title: "Workflows"
+        url: /functional/workflows.html
+  - title: "Security Guide"
+    url: /security/threat-model.html
+    children:
+      - title: "Mitigations"
+        url: /security/mitigations.html

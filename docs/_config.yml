@@ -1,0 +1,19 @@
+title: SeraphimOS Docs
+description: Documentation for the container-centric minimal OS
+theme: jekyll-theme-primer
+plugins:
+  - jekyll-mermaid  # Pour les diagrammes Mermaid
+  - jekyll-seo-tag
+
+defaults:
+  - scope:
+      path: "security"
+    values:
+      layout: guide
+      parent: Security
+
+  - scope:
+      path: "functional"
+    values:
+      layout: guide
+      parent: Functional
